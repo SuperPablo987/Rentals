@@ -17,7 +17,9 @@ namespace RentalsData
         [Required(ErrorMessage = "Please enter Province")]
         [StringLength(15)]
         public string Province { get; set; }
-        [Required(ErrorMessage = "Please enter Postal Code")]
+        [Required(ErrorMessage = "Please enter Postal Code(A1A1A1)")]
+        [RegularExpression("^([a-zA-Z][0-9]){3}$", 
+            ErrorMessage = "Postal Code has to be 6 characters in format A1A1A1")]
         [StringLength(15)]
         public string PostalCode { get; set; }
         [Range(1, 10000)]

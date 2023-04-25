@@ -50,7 +50,7 @@ namespace RentalsData
             using(RentalsContext dB = new RentalsContext())
             {
                 user = dB.Users.SingleOrDefault(usr => usr.Username == username
-                                                    && usr.Password == password);;
+                                                    && usr.Password == password);
             }
             // for static constructor method
             //var user = _users.SingleOrDefault(usr => usr.Username == username

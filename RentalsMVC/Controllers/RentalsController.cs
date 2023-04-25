@@ -67,17 +67,22 @@ namespace RentalsMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public ActionResult Create(RentalProperty rental)
+        public ActionResult Create(RentalProperty rental) //data collected from the form
         {
-            try
+            if (ModelState.IsValid) // if data from the form passed validation from rental property
             {
-                RentalsManager.Add(rental);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    RentalsManager.Add(rental);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return View();
+                } 
             }
-            catch
-            {
-                return View();
-            }
+            else
+            { return View(); } // stay on create page
         }   
 
         // auxilliary method for Create 

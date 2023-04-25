@@ -15,7 +15,7 @@ namespace RentalsData
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Change the connection string here for your home computer/lab computer
-            optionsBuilder.UseSqlServer(@"Server=localhost\sqlexpress;
+            optionsBuilder.UseSqlServer(@"Server=SAIT229383;
                                           Database=PropertyRentals;
                                           Trusted_Connection=True;");
         }
